@@ -13,4 +13,5 @@ view.file=view.ftl
 edit.file=edit.ftl
 locale.file.base.name=widget_teste
 application.resource.js.1=/resources/js/widget_teste.js
+application.resource.js.2=/resources/js/main.js
 application.resource.css.2=/resources/css/widget_teste.css

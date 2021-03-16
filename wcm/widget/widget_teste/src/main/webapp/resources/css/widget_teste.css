@@ -1,7 +1,31 @@
-/* Coloque aqui seu codigo CSS */
-.message{
-    margin-top: 10px;
-}
+
 .cadastro{
 	margin-left:15px;
+}
+
+.error-hint{
+	color:#e74c3c;
+
+}
+.hidden{
+	display: none;
+}
+.login_form #email_error,
+.login_form #pass_error,
+.login_form #inicio_error,
+.login_form #base_error,
+.login_form #processo_error,
+.login_form #gestor_error,
+.login_form #responsavel_error,
+.login_form #pass_error{
+	font-size: 18px;
+	color: #C62828;
+	background: rgba(255,0,0,0.1);
+	display: none;
+} 
+select {
+    border-radius: 5px;
+    text-transform: none;
+    padding: 5px;
+    outline: none;
 }

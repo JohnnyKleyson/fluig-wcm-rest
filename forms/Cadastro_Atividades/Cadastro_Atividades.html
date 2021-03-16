@@ -1,0 +1,86 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+</head>
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="row">
+                <form role="form" name="form" id="form">
+                    <div class="form-group col-md-3">
+                        <label for="descricao">Descri��o</label>
+                        <input  type="text" class="form-control" name="descricao" id="descricao" placeholder="Descri��o geral da atividade a ser acompanhada.">
+                       
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="dataInicio">Data de Inicio</label>
+                        <input type="date" class="form-control" id="dataInicio" placeholder="Data de Inicio da atividade" name="dataInicio">                        
+                    </div>
+        
+                    <div class="form-group col-md-3">
+                        <label for="diaBase">Dia Base</label>
+                        <input type="date" class="form-control" id="diaBase" placeholder="Dia do m�s que deve inicar atividade." name="diaBase">                        
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="conclusao">Prazo para Conclus�o</label>
+                        <input type="date" class="form-control" id="conclusao" name="conclusao">                        
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="instrucoes">Instru��es</label>
+                        <input type="text" class="form-control" id="instrucoes" placeholder="Campo texto livre para instru��es dos procedimentos que dever�o ser executados" name="instrucoes">                        
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="processo">Processo</label>
+                        <input type="text" class="form-control" id="processo" placeholder="Indique o processo" name="processo">                        
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="periodicidade">Periodicidade</label><br>
+                        <select id="periodicidade" name="periocidade" name="periodicidade">
+                            <option value="diario">Di�rio</option>
+                            <option value="mensal">Mensal</option>
+                            <option value="bimestral">Bimestral</option>
+                            <option value="trimestral">Trimestral</option>
+                            <option value="quadrimestral">Quadrimestral</option>
+                            <option value="semestral">Semestral</option>
+                            <option value="anual">Anual</option>
+                        </select><br>                        
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="responsavelExc">Responsavel (Execu��o)</label>
+                        <input type="text" class="form-control" id="responsavelExc" placeholder="Indique o responsavel pela execu��o." name="responsavelExc">                        
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="responsavelConf">Responsavel (Conferencia)</label>
+                        <input type="text" class="form-control" id="responsavelConf" placeholder="Indique o respons�vel pela confer�ncia." name="responsavelConf">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="responsavelConcl">Responsavel (Conclus�o)</label>
+                        <input type="text" class="form-control" id="responsavelConcl" placeholder="Indique o respons�vel pela conclus�o." name="responsavelConcl">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="gestor">Gestor</label>
+                        <input type="text" class="form-control" id="gestor" placeholder="Gestor respons�vel pelo acompanhamento da Atividade" name="gestor">                        
+                    </div>
+                </form>  
+            </div>
+        </div>
+    </div>
+		</form>
+	</div>
+</body>
+</html>

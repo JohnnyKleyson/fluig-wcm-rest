@@ -1,0 +1,92 @@
+
+button {
+    width: 75px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px gray;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  #header {
+    padding: 10px;
+    color: #00adb5;
+    font-size: 30px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #header button {
+    background-color: #00adb5;
+    margin-right: 10px;
+  }
+  #container {
+    width: 100%;
+    padding:10px;
+    border-radius: 10px;
+  }
+  #weekdays {
+    width: 100%;
+    display: flex;
+    color: #fff;
+  }
+  #weekdays div {
+    width:300px;
+    padding: 10px;
+  }
+  #calendar {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .day {
+    border-radius:10px;
+    border:2px solid #90a4ae;
+    width: 240px;
+    padding: 10px;
+    height: 100px;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s ease;
+    color: #fff;
+  }
+  .day:hover {
+    background-color: #565a5f;
+    color:#00838f; 
+  }
+  
+  .day + #currentDay {
+    background-color:#e8f4fa;
+  }
+  .event {
+    font-size: 10px;
+    padding: 3px;
+    background-color: #58bae4;
+    color: white;
+    border-radius: 5px;
+    max-height: 55px;
+    overflow: hidden;
+  }
+  .padding {
+    border:none !important; 
+    cursor: default !important;
+    box-shadow: none !important;
+  }
+  #monthDisplay{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      margin:0px 15px;
+
+  }
+  i{
+    cursor: pointer;
+  }

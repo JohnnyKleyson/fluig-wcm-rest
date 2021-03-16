@@ -1,0 +1,13 @@
+/* Coloque aqui seu codigo CSS */
+.btn.btn-success {
+    margin-top: 15px;
+}
+
+.row {
+    text-align: left;
+    margin-top: 20px ;
+}
+span.invalid {
+    color: red;
+    font-weight: 600;
+}

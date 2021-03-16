@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+		<script type="text/javascript" src="./main.js"></script>
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<div class="panel panel-info fluig-style-guide">
+					<div class="panel-heading">
+						Cadastro de atividades periódicas
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-4">
+								<label for="descricao">Descrição:</label>
+								<input id="descricao" type="text" name="descricao" class="form-control">
+							</div>
+							<div class="col-md-2">
+								<label for="dataInicio">Data de início:</label>
+								<input id="dataInicio" type="text" name="dataInicio" class="form-control" >
+							</div>
+							<div class="col-md-1">
+								<label for="diaBase">Dia base:</label>
+								<input id="diaBase" type="text" name="diaBase" class="form-control" >
+								<span id="validdataLimite" class="invalid" style="display: none;" required>* Data inválida</span>
+							</div>
+							<div class="col-md-1">
+								<label for="prazo">Prazo:</label>
+								<input id="prazo" type="text" name="prazo" class="form-control" >
+								<span id="validdataLimite" class="invalid" style="display: none;" required>* Data inválida</span>
+							</div>
+							<div class="col-md-3">
+								<label for="periodicidade">Periodicidade:</label>
+								<select id="periodo" name="periodo" class="form-control">
+									<option value="" selected>Selecione uma opção</option>
+									<option value="1">Diário</option>
+									<option value="2">Mensal</option>
+									<option value="3">Bimestral</option>
+									<option value="4">Trimestral</option>]
+									<option value="5">Quadrimestral</option>
+									<option value="6">Semestral</option>
+									<option value="7">Anual</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<label for="intrucoes">Intruções:</label>
+								<textarea id="intrucoes" type="text" name="instrucoes" class="form-control" ></textarea>
+							</div>
+							<div class="col-md-4">
+								<label for="situacao">Situação:</label>
+								<select id="situacao" name="situacao" class="form-control">
+									<option value="" selected>Selecione uma opção</option>
+									<option value="1">Ativa</option>
+									<option value="0">Inativa</option>
+								</select> 
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<label for="processo">Processo</label>
+								<input id="processo" type="text" name="processo" class="form-control">
+							</div>
+							<div class="col-md-4">
+								<label for="Responsavel">Responsável pela execução</label>
+								<input id="responsavel" type="text" name="responsavel" class="form-control">
+							</div>
+							<div class="col-md-4">
+								<label for="conferencia">Responsável pela conferência</label>
+								<input id="conferencia" type="text" name="conferencia" class="form-control">                    
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="conclusao">Responsável pela conclusão:</label>
+								<input id="conclusao" type="text" name="conclusao" class="form-control">
+							</div>
+							<div class="col-md-6">
+								<label for="gestor">Gestor da Atividade</label>
+								<input id="gestor" type="text" name="gestor" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	<script>
+		var datainicio = FLUIGC.calendar('#dataInicio');
+	</script>
+	</body>
+</html>

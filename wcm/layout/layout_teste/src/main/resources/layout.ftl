@@ -1,8 +1,9 @@
 <#import "/wcm.ftl" as wcm/>
 <@wcm.header authenticated="true"/>
+
 <!-- WCM Wrapper content -->
+<@wcm.menu />
 <div class="wcm-wrapper-content  fluig-style-guide">
-    <@wcm.menu />
     	<div class="wcm-all-content">
 			<div id="wcm-content" class="clearfix wcm-background">
 				<div class='tabContainer'>
@@ -22,7 +23,20 @@
 							<@wcm.renderSlot id="Slot001" decorator="false" editableSlot="true" />
 						</div>
 					</div>
-					<@wcm.footer layoutuserlabel="wcm.layoutdefault.user" />
+					<#--  <@wcm.footer layoutuserlabel="wcm.layoutdefault.user" />  -->
 				</div>
     	</div>
+		<script>
+				function openCity(cityName, elmnt) {
+					//Esconde todos os elementos com classe de "tabcontent"
+					var i, tabcontent;
+					tabcontent = document.getElementsByClassName("tabcontent");
+					for (i = 0; i < tabcontent.length; i++){
+						tabcontent[i].style.display = "none"
+					}
+
+					//Mostra o conteudo da pagina especifica
+					document.getElementById(cityName).style.display = "block";
+				}
+		</script>
 </div>

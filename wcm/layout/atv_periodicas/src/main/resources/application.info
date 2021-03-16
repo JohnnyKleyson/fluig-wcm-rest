@@ -1,0 +1,20 @@
+application.type=layout
+application.code=atv_periodicas
+application.title=atividades periodicas
+application.description=Pagina para cadastro e consulta de atividades
+application.category=SYSTEM
+application.renderer=freemarker
+developer.code=ZION2
+developer.name=ARTEMIS
+developer.url=http://www.fluig.com
+layout.defaultSlot=SlotA
+layout.file=layout.ftl
+locale.file.base.name=atv_periodicas
+slot.SlotGlobalAlert=alertpopover
+slot.SlotInstantSearch=suggestsearch
+slot.SlotLogin=sociallogin
+slot.SlotMenu=menu
+slot.SlotUsePolicy=usepolicy
+application.icon=icon.png
+application.resource.css.1=/resources/css/layout.css
+

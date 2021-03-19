@@ -1,15 +1,5 @@
 
-button {
-    width: 75px;
-    cursor: pointer;
-    box-shadow: 0px 0px 2px gray;
-    border: none;
-    outline: none;
-    padding: 5px;
-    border-radius: 5px;
-    color: white;
-  }
-  
+
   #header {
     padding: 10px;
     color: #00adb5;
@@ -44,6 +34,7 @@ button {
     flex-wrap: wrap;
   }
   .day {
+    text-align: right;
     border-radius:10px;
     border:2px solid #90a4ae;
     width: 240px;
@@ -89,4 +80,8 @@ button {
   }
   i{
     cursor: pointer;
+  }
+
+  span.spanAtividades{
+    text-align: left;
   }

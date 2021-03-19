@@ -1,3 +1,4 @@
+
 <div id="HelloWorld_${instanceId}" class="super-widget wcm-widget-class fluig-style-guide"> 
     <div id="container">
       <div id="header">
@@ -21,7 +22,21 @@
     <div id='teste'></div>
    
     <script>
-      //Construção Calendario.
+      var _jsonreturn = [];
+
+        $.ajax({
+            async:false,
+            limit:1000,
+            type:"GET",
+            dataType:"json",
+            url:"/api/public/ecm/dataset/search?datasetId=Cadastro_Atividades",
+            success: function(retorno){
+                _jsonreturn = retorno.content.sort();
+                console.log(_jsonreturn);
+               
+            }
+        });
+        //Construção Calendario.
         let nav = 0;
         const calendar = document.getElementById('calendar');
         const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -52,22 +67,30 @@
             document.getElementById("monthDisplay").innerText = (dt.toLocaleDateString('pt-br', {month:'long'})).toUpperCase() + " " + (year);
             
             calendar.innerHTML =  '';
+
             //Criação dos dias da semana.
+            var dia = 1;
+
             for(let i = 1; i <= paddingDays + daysInMonth; i++){
                 const daySquare = document.createElement('div');
                 daySquare.classList.add('day');
+                console.log(daySquare)
+                daySquare.id = 'day' + dia
+                console.log('day' + dia)
 
-                if (i > paddingDays){
+                if (i > paddingDays){ //Meu indice é o "i", pois o innerText recebe ele - padding days
                     daySquare.innerText = i - paddingDays;
+                    calendar.appendChild(daySquare);
+                    atividades(_jsonreturn,dia);
+                    dia++;
 
                     daySquare.addEventListener('click', () => console.log('click'));
                 }else{
                     daySquare.classList.add('padding');
+                  
                 }
-
-                calendar.appendChild(daySquare);
-            }
-        }
+            };
+        };
         //Botoes para alternar entre meses do ano.
         function initButtons(){
             document.getElementById('nextButton').addEventListener('click', () => {
@@ -79,41 +102,34 @@
                 nav--;
                 load();
             });
-        }
+        };
 
         initButtons();
         load();
 
         //Consultando Dados do Dataset Pela API "Dataset Search" e Injetando no HTML.
+        function atividades(data,teste){
+            for (const i in data) {
+                var {
+                    descricao,
+                    diaBase, 
+                    instrucoes, 
+                    periodo,
+                } = data[i];
+                const desc = descricao
+                const instru = instrucoes
+                const dataBase = parseInt(diaBase);
 
-        var _jsonreturn = [];
-        $.ajax({
-            async:false,
-            limit:1000,
-            type:"GET",
-            dataType:"json",
-            url:"/api/public/ecm/dataset/search?datasetId=Cadastro_Atividades",
-            success: function(retorno){
-                _jsonreturn = retorno.content.sort();
-                
-                for (const i in _jsonreturn) {
-                    var {
-                        descricao,
-                        diaBase, 
-                        instrucoes, 
-                    } = _jsonreturn[i];
-                    const desc = descricao
-                    const instru = instrucoes
-                    const base = diaBase;
-
-                            
-                    var mostrarAtvd = document.createElement('span');
-                    mostrarAtvd.className ="mostrarAtvd";
-                    mostrarAtvd.innerHTML = descricao 
-                    var diaAtv = document.querySelector(".day")
-                    diaAtv.appendChild(mostrarAtvd);
-                }; 
-            }
-        })
+                var spanAtividades = document.createElement('span');
+                spanAtividades.className ="spanAtividades";
+                spanAtividades.innerHTML = descricao
+              
+                //inserção da descrição nos campos de dias criados acima
+                if (teste === dataBase || periodo === 'diario' && teste <= 31){//esse 31 talvez seja o meu paddingDays + daysInMonth
+                    var diaAtv = document.getElementById( 'day' + teste);
+                    diaAtv.appendChild(spanAtividades);
+                }
+            }; 
+        };
    </script>
 </div>

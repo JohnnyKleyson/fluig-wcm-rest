@@ -17,7 +17,7 @@ $(document).ready(function () {
 
     })
 
-// Consulta Api collegue do fluig 
+// Consulta Api collegue do fluig para fazer o autocomplete
 const data = {
         name: 'colleague',
     };

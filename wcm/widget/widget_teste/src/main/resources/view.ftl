@@ -35,8 +35,8 @@
                     </div>
 
                     <div class="form-group col-md-2">
-                        <label for="periodicidade">Periodicidade</label><br>
-                        <select id="periodicidade" name="periocidade" name="periodicidade">
+                        <label for="periodo">periodo</label><br>
+                        <select id="periodo" name="periodo" class="form-control">
                             <option value="diario">Diário</option>
                             <option value="mensal">Mensal</option>
                             <option value="bimestral">Bimestral</option>
@@ -123,7 +123,7 @@
                         { name: "dataInicio", value: $('#dataInicio').val()}, 
                         { name: "diaBase",    value: $('#diaBase').val()},
                         { name: "conclusao",  value: $('#conclusao').val()},
-                        { name: "periodicidade", value: $('#periodicidade').val()},
+                        { name: "periodo", value: $('#periodo').val()},
                         { name: "instrucoes", value: $('#instrucoes').val()},
                         { name: "situacao" ,  value: 1},
                         { name: "processo" ,  value: $('#processo').val()},

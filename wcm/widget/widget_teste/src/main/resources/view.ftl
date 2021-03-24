@@ -16,7 +16,7 @@
         
                     <div class="form-group col-md-3" id="base">
                         <label for="diaBase">Dia Base</label>
-                        <input type="date" class="form-control" id="diaBase" placeholder="Dia do mês que deve inicar atividade." name="diaBase">
+                        <input type="text" class="form-control" id="diaBase" placeholder="Dia do mês que deve inicar atividade." name="diaBase">
                     </div>
 
                     <div class="form-group col-md-3" id="limite">
@@ -79,9 +79,9 @@
 
     <script>   
         //Validação do Formulario
-        /*const form = document.getElementById('form');
+        const form = document.getElementById('form');
         const nameInput = document.querySelector('input[name="descricao"]');
-
+        /*
         let isFormValid = false;
 
         const validateInputs = () => {
@@ -92,13 +92,13 @@
             nameInput.nextElementSibling.classList.remove("hidden");
             isFormValid = false
             }
-        }
+        }*/
         form.addEventListener("submit", (e) => {
             e.preventDefault();
             validateInputs();
            
         })
-
+        /*
         nameInput.addEventListener('input', () => {
             validateInputs();
         })
@@ -153,13 +153,12 @@
                     url: '/api/public/2.0/cards/create',
                     data: JSON.stringify(data),
                     success: function (sucesso) {
+                        console.log(data)
                         FLUIGC.message.alert({
                             message: 'Cadastro Realizado com sucesso :)',
                             title: 'Sucesso',
                             label: 'OK'
                         });
-                        console.log(sucesso);
-                        console.log(data);
                         success = true;
                     },erro: function(){
                         console.log("erro");

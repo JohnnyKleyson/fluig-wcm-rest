@@ -17,7 +17,7 @@ $(document).ready(function () {
 
     })
 
-// Consulta Api collegue do fluig para fazer o autocomplete
+// Consulta Api collegue do fluig 
 const data = {
         name: 'colleague',
     };
@@ -166,7 +166,6 @@ function  salvar() {
                 url: '/api/public/2.0/cards/create',
                 data: JSON.stringify(data),
                 success: function () {
-                    console.log(data);
                     success = true;
                     var inputsAtividades = document.getElementById('tabCadastro').getElementsByTagName('input');
                     var selectAtividades = document.getElementById('tabCadastro').getElementsByTagName('select');
@@ -177,7 +176,6 @@ function  salvar() {
                     }
                 },
                 erro: function( ) {
-                    console.log("erro");
                     success = false;
                 }
             })      
@@ -218,3 +216,5 @@ function validaCampos() {
     }
     return validaPasso;
 }
+
+

@@ -76,7 +76,7 @@
                 daySquare.classList.add('day');
                 console.log(daySquare)
                 daySquare.id = 'day' + dia
-                console.log('day' + dia)
+                console.log('day ' + dia)
 
                 if (i > paddingDays){ //Meu indice é o "i", pois o innerText recebe ele - padding days
                     daySquare.innerText = i - paddingDays;
@@ -114,8 +114,15 @@
                     descricao,
                     diaBase, 
                     instrucoes, 
+                    dataInicio,
                     periodo,
                 } = data[i];
+                console.log(diaBase);//ajeitar o dia base para aparecer apeenas o dia de fato nao o date completo. Pega o elemtnto dia do date
+
+                const inicio = dataInicio.split("/")
+              
+                var mesInicio = parseInt(inicio[1]);
+           
                 const desc = descricao
                 const instru = instrucoes
                 const dataBase = parseInt(diaBase);
@@ -128,7 +135,7 @@
                 if (teste === dataBase || periodo === 'diario' && teste <= 31){//esse 31 talvez seja o meu paddingDays + daysInMonth
                     var diaAtv = document.getElementById( 'day' + teste);
                     diaAtv.appendChild(spanAtividades);
-                }
+                }//Mudar o campo de DIABASE para apenas hnumerico nao o campo date e testar. Dps dar console logo no dia base
             }; 
         };
    </script>

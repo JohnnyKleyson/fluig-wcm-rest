@@ -1,8 +1,6 @@
-
 var dados = [];
 var loading = FLUIGC.loading(window);
 
-//buscando dataset
 loading.show();
 $.ajax({
     async: true,
@@ -19,11 +17,12 @@ $.ajax({
                 return 0;
             }            
             dados = res.content.sort(compare);
+            console.log(dados)
         } 
     }
     
 });
-//renderizando o calendario
+
 loading.hide();
 var fechado = false;
 $( function () {
@@ -97,18 +96,14 @@ function renderDias(mes){
                 var dias = document.createElement('div');
                 dias.className = 'calendar__day day';
                 dias.id = `day${dia}`;
-
                 if (dia > 31) {
                     dias.innerHTML = '';
                     div.appendChild(dias);
-         
                 }else {
                     dias.innerHTML = dia;
-                 
                     div.appendChild(dias) ;
                     atividades(dados, mes, dia);
                     dia++;
-                   
                 }
             }
         }
@@ -132,7 +127,7 @@ function renderDias(mes){
                         dias.innerHTML = '';
                         div.appendChild(dias);
                     } else {
-                        
+                        console.log(dados)
                         dias.innerHTML = dia;
                         div.appendChild(dias);
                         atividades(dados, mes, dia);
@@ -154,21 +149,16 @@ function renderDias(mes){
                 var div = document.getElementById(`calendar__week${j}`);
                 var dias = document.createElement('div');
                 dias.className = 'calendar__day day';
-                dias.id = `day${dia}`; //Isso pode ser o indice, estudar-lo dps
-                console.log(`day${dia}`)
+                dias.id = `day${dia}`;
                 if (dia > 31) {
                     dias.innerHTML = '';
                     div.appendChild(dias);
                 }else {
-                    dias.innerHTML = dia;//mostra qual numero do dia no calendario
-                    
+                    dias.innerHTML = dia;
                     div.appendChild(dias);
-                    atividades(dados, dia);
-                    console.log(atividades)
+                    atividades(dados, mes, dia); 
                     dia++;
-                    dias.addEventListener('click', () => console.log('click'))
                 }
-              
             }
         }
     } else if (mes === 3 ) {
@@ -337,8 +327,6 @@ function renderDias(mes){
 }
 
 
-
-
 function openNav() {
     if(!fechado){
         document.getElementById("side").classList.remove("hide");
@@ -350,8 +338,24 @@ function openNav() {
         fechado = false;
     }
   }
- 
-function atividades(data, teste) {
+
+function atividades(data, mes, dia) {
+    var diaria = document.getElementById('diarias');
+    var naodiaria = document.getElementById('naoDiarias');
+    while(diaria.firstChild) {
+        diaria.removeChild(diaria.firstChild);
+    }
+    while(naodiaria.firstChild) {
+        naodiaria.removeChild(naodiaria.firstChild);
+    }
+    var atvDiaria = document.createElement('h2');
+    atvDiaria.innerHTML = "Diárias:";
+    diaria.appendChild(atvDiaria);
+
+    var atvNaoDiaria = document.createElement('h2');
+    atvNaoDiaria.innerHTML = "Atividades:";
+    naodiaria.appendChild(atvNaoDiaria);
+
     for (const i in data) {
         
         var {
@@ -360,25 +364,51 @@ function atividades(data, teste) {
             diaBase, 
             periodo, 
         } = data[i];
+
         const inicio = dataInicio.split('/');
         var mesInicio = parseInt(inicio[1]);
         var dataBase = parseInt(diaBase);
-      
+
+
+
+        var spanAtividadesDia = document.createElement('span');
+        spanAtividadesDia.className ="spanAtividadesDia";
+        spanAtividadesDia.innerHTML = `- ${descricao.toUpperCase()}`;
+        
         var spanAtividades = document.createElement('span');
         spanAtividades.className ="spanAtividades";
-        spanAtividades.innerHTML = `- ${descricao.toUpperCase()}`; 
+        spanAtividades.innerHTML = `- ${descricao.toUpperCase()}`;
         
         var remider = document.createElement('span');
         remider.className = "spanAtividades";
-        remider.innerHTML  = `${diaBase} - ${descricao.toUpperCase()}`; //Testar isso para ver se é util para po codigor
-    
-        //inserção da descrição nos campos de dias criados acima
-      
-            if (teste === dataBase || periodo === '1' && teste <= 31){
-                var diaAtv = document.getElementById( `day${teste}`);
+        remider.innerHTML  = `${diaBase} - ${descricao.toUpperCase()}`;
+        
+        if (mes === (mesInicio-1) || periodo === '1'){
+            if (periodo === '1' ) {
+                diaria.appendChild(spanAtividadesDia);
+            } else {
+                naodiaria.appendChild(remider);
+            }
+            if (dia === dataBase || periodo === '1' && dia <= 31){
+                var diaAtv = document.getElementById( `day${dia}`);
                 diaAtv.appendChild(spanAtividades);
-            }     
+            }
+        } 
+         
+
+        var sideTitle = document.getElementById('sideTitle');
+        if (mes === 0) sideTitle.innerHTML = `Janeiro`;
+        else if(mes === 1) sideTitle.innerHTML = `Fevereiro`;
+        else if(mes === 2) sideTitle.innerHTML = `Março`;
+        else if(mes === 3) sideTitle.innerHTML = `Abril`;
+        else if(mes === 4) sideTitle.innerHTML = `Maio`;
+        else if(mes === 5) sideTitle.innerHTML = `Junho`;
+        else if(mes === 6) sideTitle.innerHTML = `Julho`;
+        else if(mes === 7) sideTitle.innerHTML = `Agosto`;
+        else if(mes === 8) sideTitle.innerHTML = `Setembro`;
+        else if(mes === 9) sideTitle.innerHTML = `Outubro`;
+        else if(mes === 10) sideTitle.innerHTML = `Novembro`;
+        else if(mes === 11) sideTitle.innerHTML = `Dezembro`;
     };
    
 }
-
